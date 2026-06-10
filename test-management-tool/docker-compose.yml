@@ -5,9 +5,9 @@ services:
     image: postgres:15-alpine
     container_name: testmgmt-postgres
     environment:
-      POSTGRES_DB: testmgmt
-      POSTGRES_USER: testmgmt
-      POSTGRES_PASSWORD: testmgmt123
+      POSTGRES_DB: neondb
+      POSTGRES_USER: neondb_owner
+      POSTGRES_PASSWORD: npg_jRxZagS9OYN5
     ports:
       - "5432:5432"
     volumes:
@@ -26,9 +26,9 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/testmgmt
-      SPRING_DATASOURCE_USERNAME: testmgmt
-      SPRING_DATASOURCE_PASSWORD: testmgmt123
+      SPRING_DATASOURCE_URL: //neondb_owner:npg_jRxZagS9OYN5@ep-cool-tooth-aqqevrkw.c-8.us-east-1.aws.neon.tech/neondb?sslmode=req
+      SPRING_DATASOURCE_USERNAME: neondb_owner
+      SPRING_DATASOURCE_PASSWORD: npg_jRxZagS9OYN5
       APP_JWT_SECRET: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
       APP_JWT_EXPIRATION: 86400000
     depends_on:
